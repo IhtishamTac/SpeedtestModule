@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yellow circle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes rotates {
+            0%{
+                transform: rotate(0deg) scale(1);
+                background-color: yellow;
+            }
+            25%{
+                transform: rotate(90deg) scale(0.8);
+                background-color: yellow;
+            }
+            50%{
+                transform: rotate(180deg) scale(0.6);
+                background-color: yellow;
+                border-radius: 100px;
+            }
+            75%{
+                transform: rotate(270deg) scale(0.4);
+                border-radius: 200px;
+            }
+            100%{
+                transform: rotate(360deg) scale(0.2);
+                background-color: red;
+                border-radius: 300px;
+
+            }
+        }
+        .square{
+            width: 600px;
+            height: 600px;
+            background-color: yellow;
+            animation: rotates 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square">
+
+        </div>
+    </div>
+</body>
+</html>

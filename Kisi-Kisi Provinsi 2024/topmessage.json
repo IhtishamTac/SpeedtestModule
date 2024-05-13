@@ -1,0 +1,80 @@
+{
+    "messages": [
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "Hey, how's it going?"
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "I'm good, thanks! How about you?"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "I'm doing well too, thanks!"
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "That's great to hear!"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "By the way, did you see the game last night?"
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "Yes, it was amazing!"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "I wish I could have watched it."
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "You missed out on a great match!"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "Maybe I'll catch the highlights later."
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "That's a good idea. It was intense!"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "I heard it was a close game."
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "Indeed, it went into overtime!"
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "Wow, must have been thrilling!"
+      },
+      {
+        "sender": "user2",
+        "recipient": "user1",
+        "content": "It definitely was! Hopefully, we'll have more games like that."
+      },
+      {
+        "sender": "user1",
+        "recipient": "user2",
+        "content": "Fingers crossed!"
+      }
+    ]
+  }
+  

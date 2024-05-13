@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: lightgray;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .color-choices div {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="canvas" width="700" height="500" style="background-color: white;"></canvas>
+        <div class="color-choices">
+            <div class="red" id="red"></div>
+            <div class="blue" id="blue"></div>
+            <div class="green" id="green"></div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const red = document.getElementById("red");
+        const blue = document.getElementById("blue");
+        const green = document.getElementById("green");
+
+        let mouseX = 0;
+        let mouseY = 0;
+        ctx.fillStyle = 'red';
+        
+        red.addEventListener("click", ()=>ctx.fillStyle = 'red');
+        blue.addEventListener("click", ()=>ctx.fillStyle = 'blue');
+        green.addEventListener("click", ()=>ctx.fillStyle = 'green');
+        
+        let mouseClick = false;
+        
+        function main(e) {
+            if(e != null){
+                mouseX = e.clientX - 95;
+                mouseY = e.clientY - 110;
+            }
+            ctx.beginPath();
+            ctx.arc(mouseX, mouseY, 2, 0, 10);
+            ctx.fill();
+        }
+
+        addEventListener("mousemove", (e) => {
+            if (mouseClick) {
+                console.log('draw');
+                main(e);
+            }
+        });
+        addEventListener("mousedown", (e) => {
+            if (e.button === 0) {
+                mouseClick = true;
+            }
+        });
+        addEventListener("mouseup", (e) => {
+            if (e.button === 0) {
+                mouseClick = false
+
+            }
+        });
+    </script>
+</body>
+
+</html>

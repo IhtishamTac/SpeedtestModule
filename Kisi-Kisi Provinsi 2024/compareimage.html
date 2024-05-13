@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compare</title>
+    <style></style>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="700"
+      height="500"
+      style=" margin: 0 auto"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const canvas2 = document.getElementById("canvas2");
+      const ctx2 = canvas.getContext("2d");
+
+      const imgs = new Image();
+      imgs.src = "sea.avif";
+
+      var x = 350;
+
+      // const marginX = canvas.g
+
+      imgs.onload = function () {
+        draw();
+      };
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(imgs, 0, 0, x, canvas.height, 0,0,x, canvas.height);
+        ctx.save();
+        ctx.filter = "grayscale(100%)";
+        ctx.drawImage(imgs, x, 0, canvas.width, canvas.height, x,0, canvas.width, canvas.height);
+        ctx.restore();
+
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 3;
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 500);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(x, 270, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        requestAnimationFrame(draw);
+      }
+      let isClicking = false;
+
+      const isCircleClick = (e) => {
+        return (
+          e.clientX < x + 20 &&
+          e.clientX + 20 > x &&
+          e.clientY < 270 + 20 &&
+          e.clientY + 20 > 270
+        );
+      };
+      addEventListener("mousemove", (e) => {
+        if (isClicking) {
+          x = e.clientX;
+        }
+      });
+      addEventListener("mousedown", (e) => {
+        if (e.button === 0) {
+          if (isCircleClick(e)) {
+            isClicking = true;
+          }
+        }
+      });
+      addEventListener("mouseup", (e) => {
+          isClicking = false;
+      });
+    </script>
+  </body>
+</html>

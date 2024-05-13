@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate</title>
+</head>
+<body>
+    
+    <input type="number" id="inp">
+
+    <script>
+        const input = document.getElementById("inp");
+        function calculateOddSquare() {
+            const n = Number(input.value)
+            if(n % 2 === 0){
+                console.log('not odd');
+                return;
+            }
+            // const res = (n * n * n) / 3;
+            console.log(res);
+        }
+        input.addEventListener('change', calculateOddSquare);
+    </script>
+</body>
+</html>

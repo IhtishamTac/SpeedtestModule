@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <style>
+        .root {
+            display: grid;
+            grid-template-rows: 80px auto 50px;
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .header-container {
+            display: grid;
+            grid-template-columns: auto 300px;
+        }
+        .header {
+            background-color: green;
+        }
+        .navbar {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        .navbar div {
+            background-color: pink;
+        }
+        .body-container {
+            display: grid;
+            grid-template-columns: auto 200px;
+            grid-auto-flow: column;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-rows: 50px auto;
+        }
+        .post-body {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        .content {
+            display: grid;
+        }
+        .content-body {
+            background-color: blue;
+            color: white;
+        }
+        .content-image {
+            background-color: orangered;
+        }
+        .post-title {
+            background-color: skyblue;
+        }
+        .post-meta {
+            background-color: brown;
+            color: white;
+        }
+        .sidebar-container {
+            display: grid;
+        }
+        .sidebar {
+            background-color: lightgreen;
+        }
+        .ads {
+            background-color: yellow;
+        }
+        .other {
+            background-color: orange;
+        }
+        .footer {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <div class="header-container">
+            <div class="header">Header</div>
+            <div class="navbar">
+                <div>Nav 1</div>
+                <div>Nav 2</div>
+                <div>Nav 3</div>
+            </div>
+        </div>
+        <div class="body-container">
+            <div class="wrapper">
+                <div class="post-title">
+                    Post Title
+                </div>
+                <div class="post-body">
+                    <div class="post-meta">
+                        Post Meta
+                    </div>
+                    <div class="content">
+                        <div class="content-body">
+                            Content
+                        </div>
+                        <div class="content-image">
+                            Content Image
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <div class="sidebar">
+                    Sidebar
+                </div>
+                <div class="ads">
+                    Ads
+                </div>
+                <div class="other">
+                    Other Stuffs
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &copy; 2024
+        </div>
+    </div>
+</body>
+</html>

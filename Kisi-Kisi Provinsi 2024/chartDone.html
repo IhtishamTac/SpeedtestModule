@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+</body>
+ 
+<script>
+    (function () {
+        const canvas = document.querySelector("#canvas")
+        const ctx = canvas.getContext("2d")
+ 
+        const width = canvas.width
+        const height = canvas.height
+ 
+        ctx.fillStyle = "ghostwhite"
+        ctx.fillRect(0, 0, width, height)
+ 
+        ctx.fillStyle = "black"
+        ctx.moveTo(30, height - 40)
+        ctx.lineTo(width - 30, height - 40)
+        ctx.stroke()
+ 
+        ctx.moveTo(30, height - 40)
+        ctx.lineTo(30, 30)
+        ctx.stroke()
+ 
+        const data = {
+            1: 13,
+            2: 15,
+            3: 12,
+            4: 16,
+            5: 18,
+            6: 14,
+            7: 17,
+            8: 19,
+            9: 15,
+            10: 16
+        }
+ 
+        let chart = {}
+ 
+        const dataEntries = Object.entries(data)
+        const dataKeys = Object.keys(data)
+        const sortedVal = Object.values(data).sort()
+ 
+        const fnX = (i) => i * 50
+ 
+        for (let i = 0; i < dataKeys.length; ++i) {
+            const sorted = sortedVal[i]
+            const x = 50 + fnX(i)
+            const y = height - 50 - (i * 30)
+ 
+            chart[sorted] = y
+ 
+            ctx.fillText(sorted, 10, y)
+ 
+            ctx.fillText(dataKeys[i], x, height - 20)
+        }
+ 
+        for (let i=0; i<dataEntries.length - 1; ++i) {
+            const item = chart[dataEntries[i][1]]
+            const nextItem = chart[dataEntries[i + 1][1]]
+ 
+            ctx.moveTo(fnX(i + 1), item)
+            ctx.lineTo(fnX(i + 2), nextItem)
+            ctx.stroke()
+        }
+    })()
+</script>
+ 
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chart</title>
+    <style>
+      * {
+        margin: 0 auto;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      canvas {
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="canvas" width="600" height="400"></canvas>
+    </div>
+
+    <script>
+      const ctx = document.getElementById("canvas").getContext("2d");
+
+      let bottomSection = 350;
+
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.moveTo(50, 20);
+      ctx.lineTo(50, bottomSection);
+      ctx.stroke();
+
+      ctx.moveTo(50, bottomSection);
+      ctx.lineTo(550, 350);
+      ctx.stroke();
+
+      ctx.fillText("Jumlah", 35, 15);
+      ctx.fillText("Tanggal", 555, bottomSection + 3);
+
+      let jumlah = {
+        1: 13,
+        2: 19,
+        3: 70,
+        4: 41,
+        5: 55,
+        6: 15,
+        7: 52,
+        8: 27,
+      };
+
+
+      let arrayY = {};
+
+      function mainChart() {
+        let spaceX = 0;
+        let spaceY = 0;
+
+        const sortedJumlah = Object.values(jumlah).sort((a, b) => b - a);
+        for (let juml in jumlah) {
+          spaceX += 65;
+          spaceY += 40;
+          arrayY[sortedJumlah[juml - 1]] = spaceY;
+
+          ctx.fillText(juml, spaceX, bottomSection + 20);
+          ctx.fillText(sortedJumlah[juml - 1], 25, spaceY);
+
+          // ctx.moveTo(6 + juml, jumlah[juml]);
+          // ctx.lineTo(spaceX + 20,jumlah[juml]);
+          // ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(spaceX, arrayY[jumlah[juml]], 4, 0, Math.PI * 2);
+          ctx.fillStyle = "red";
+          ctx.fill();
+        }
+        console.log(jumlah);
+      }
+      mainChart();
+    </script>
+  </body>
+</html>

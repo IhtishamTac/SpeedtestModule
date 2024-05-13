@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <canvas id="canvas" width="460" height="320" style="background-color: green;"></canvas>
+            <div class="select">
+                <label for="image">
+                    Image:
+                    <select name="image" id="image1">
+                        <option selected disabled>Image</option>
+                        <option value="image1">Image 1</option>
+                        <option value="image2">Image 2</option>
+                        <option value="image3">Image 3</option>
+                    </select>
+                </label>
+                <label for="filter">
+                    Filter:
+                    <select name="filter" id="filter1">
+                        <option selected disabled>FIlter</option>
+                        <option value="darken">Darken</option>
+                        <option value="lighten">Lighten</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const selectImg = document.getElementById('image1');
+        const filterImg = document.getElementById('filter1');
+
+        const img1 = new Image();
+        img1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/300px-The_Scream.jpg';
+        const img2 = new Image();
+        img2.src = 'https://cdn.pixabay.com/photo/2022/11/26/04/04/tree-7617245_960_720.jpg';
+        const img3 = new Image();
+        img3.src =
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSczF54nqZi0nxQh918xufsHwgKZwFFHsCyYq8xgqiKnw&s';
+
+        let img = img1;
+        let ratioBrighness = 1;
+
+        selectImg.addEventListener('change', (e) => {
+            let valueI = e.target.value;
+            switch (valueI) {
+                case 'image1':
+                    img = img1;
+                    break;
+                case 'image2':
+                    img = img2;
+                    break;
+                case 'image3':
+                    img = img3;
+                    break;
+            }
+            main();
+        });
+        filterImg.addEventListener('change', (e) => {
+            let valuef = e.target.value;
+            console.log(valuef);
+            if (valuef == 'darken') {
+                ratioBrighness = 0.5;
+                main();
+            }
+            if (valuef == 'lighten') {
+                ratioBrighness = 2;
+                main();
+            }
+        });
+
+        
+        function main() {
+            let bright = 'brightness(' + ratioBrighness +')';
+            console.log(ratioBrighness);
+            ctx.drawImage(img, 10, 10, 210, 300);
+
+            const offscreenCanvas = document.createElement('canvas');
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+            offscreenCanvas.width = img.width;
+            offscreenCanvas.height = img.height;
+
+            offscreenCtx.drawImage(img, 0, 0);
+
+            offscreenCtx.filter = bright;
+            offscreenCtx.drawImage(img, 0, 0);
+
+            ctx.drawImage(offscreenCanvas, 240, 10, 210, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                main();
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

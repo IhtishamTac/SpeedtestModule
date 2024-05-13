@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes gradient {
+            0% {
+                background-image: linear-gradient(to right, red 0%, yellow);
+            }
+            25% {
+                background-image: linear-gradient(to right, red 25%, yellow);
+            }
+            50% {
+                background-image: linear-gradient(to right, red 50%, yellow);
+            }
+            75% {
+                background-image: linear-gradient(to right, red 75%, yellow);
+            }
+            100% {
+                background-image: linear-gradient(to right, red 90%, yellow);
+            }
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            animation: gradient 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+</body>
+</html>

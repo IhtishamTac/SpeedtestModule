@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        .container{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            position: absolute;
+            width: 400px; 
+            height: 400px;
+            border: 2px solid;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+    </div>
+    <div class="container">
+        <h1 style="font-size: 100px;" id="text">This is text</h1>
+    </div>
+
+
+    <script>
+        const box = document.getElementsByClassName("box");
+        const text = document.getElementById("text").textContent;
+
+        let splitWord = text.split('');
+        // console.log(splitWord);
+        function main() {
+            for (let i = 0; i < splitWord.length; i++) {
+                const words = splitWord[i];
+            }
+        }
+    </script>
+</body>
+</html>

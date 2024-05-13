@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid css</title>
+</head>
+<style>
+    .container {
+        display: grid;
+        grid-template-rows: 60px auto 50px;
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+        gap: 5px;
+
+    }
+
+    .header-container {
+        display: grid;
+        grid-template-columns: auto 300px;
+        gap: 5px;
+    }
+
+    .nav {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 5px;
+    }
+
+    .nav div{
+        background-color: pink;
+
+    }
+
+    .header {
+        background-color: green;
+    }
+
+    .post-title {
+        background-color: lightblue;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-rows: 70px auto;
+        gap: 5px;
+    }
+
+    .body-container {
+        display: grid;
+        grid-template-columns: auto 150px;
+        grid-auto-flow: column;
+        gap: 5px;
+    }
+
+    .post-body {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: auto 450px;
+        gap: 5px;
+
+    }
+
+    .sidebar-container {
+        display: grid;
+        gap: 5px;
+
+    }
+
+    .footer {
+        background-color: gray;
+    }
+
+    .content {
+        display: grid;
+        grid-template-rows: auto 240px;
+        gap: 5px;
+
+    }
+
+    .post-meta {
+        background-color: lightgreen;
+    }
+
+    .main-content {
+        background-color: gray;
+    }
+
+    .main-content-image {
+        background-color: yellow;
+    }
+
+    .sidebar {
+        background-color: orange;
+    }
+
+    .ads {
+        background-color: green;
+    }
+
+    .other {
+        background-color: lightpink;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header-container">
+            <div class="header">Site title</div>
+            <div class="nav">
+                <div class="">nav1</div>
+                <div class="">nav2</div>
+                <div class="">nav3</div>
+            </div>
+        </div>
+        <div class="body-container">
+            <div class="wrapper">
+                <div class="post-title">
+                    post title
+                </div>
+                <div class="post-body">
+                    <div class="post-meta">
+                        Post meta
+                    </div>
+                    <div class="content">
+                        <div class="main-content">
+                            Main content
+                        </div>
+                        <div class="main-content-image">
+                            Main content image
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <div class="sidebar">
+                    sidebar
+                </div>
+                <div class="ads">
+                    ads
+                </div>
+                <div class="other">
+                    other stuff
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            @2018 footer
+        </div>
+    </div>
+</body>
+
+</html>

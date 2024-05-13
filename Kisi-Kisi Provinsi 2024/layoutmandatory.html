@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+       .wrapper{
+        width: 960px;
+        height: 800px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+       }
+       .section div{
+        background-color: lightgrey;
+       }
+       .section{
+        display: grid;
+        gap: 10px;
+       }
+       .a{
+        grid-template-rows: 4fr 3fr 3fr;
+       }
+       .b{
+        grid-template-rows: 2fr 5fr 3fr;
+       }
+       .c{
+        grid-template-rows: 3fr 2fr 4fr;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="section a">
+                <div class="element"></div>
+                <div class="element"></div>
+                <div class="element"></div>
+            </div>
+            <div class="section b">
+                <div class="element"></div>
+                <div class="element"></div>
+                <div class="element"></div>
+            </div>
+            <div class="section c">
+                <div class="element"></div>
+                <div class="element"></div>
+                <div class="element"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
